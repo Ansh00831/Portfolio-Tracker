@@ -2,6 +2,7 @@ import yfinance as yf
 import pandas as pd
 import streamlit as st
 
+
 @st.cache_data(ttl=300)  # Cache for 5 minutes
 def fetch_historical_data(tickers, period="1y"):
     """
@@ -16,7 +17,7 @@ def fetch_historical_data(tickers, period="1y"):
     """
     try:
         if len(tickers) == 1:
-            data = yf.download(
+            data = yf.download(  # FIXED: was load_pricer
                 tickers[0],
                 period=period,
                 auto_adjust=True,
@@ -36,7 +37,7 @@ def fetch_historical_data(tickers, period="1y"):
                 # If data is already a Series
                 data = pd.DataFrame(data, columns=[tickers[0]])
         else:
-            data = yf.download(
+            data = yf.download(  # FIXED: was load_pricer
                 tickers,
                 period=period,
                 auto_adjust=True,
@@ -80,7 +81,7 @@ def get_price_on_date(ticker, buy_date):
         target_date = pd.to_datetime(buy_date)
         
         # Fetch 10 days of data to handle weekends/holidays
-        data = yf.download(
+        data = yf.download(  # FIXED: was load_pricer
             ticker,
             start=target_date - pd.Timedelta(days=10),
             end=target_date + pd.Timedelta(days=5),

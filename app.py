@@ -8,6 +8,7 @@ from src.calculations import calculate_portfolio_values, portfolio_summary, calc
 from src.risk_metrics import annualized_volatility, sharpe_ratio, max_drawdown, calculate_beta, value_at_risk_historical, value_at_risk_parametric, conditional_value_at_risk, calculate_drawdown_series
 from src.visualizations import allocation_pie, performance_chart, returns_comparison, drawdown_chart
 
+
 # ----------------------------
 # Streamlit Config
 # ----------------------------
