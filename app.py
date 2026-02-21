@@ -86,7 +86,7 @@ st.title("📊 Interactive Portfolio Tracker")
 # Load Ticker Universe
 # ----------------------------
 try:
-    tickers_df = pd.read_csv("data/tickers.csv")
+    tickers_df = pd.read_csv("Data/tickers.csv")
 except FileNotFoundError:
     st.error("❌ tickers.csv not found in data/ folder")
     st.stop()
