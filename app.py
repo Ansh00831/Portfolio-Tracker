@@ -277,6 +277,7 @@ with col1:
 
 with col2:
     st.subheader("📊 Top Holdings")
+    portfolio_df["Current_Value"] = pd.to_numeric(portfolio_df["Current_Value"], errors="coerce")
     top_holdings = portfolio_df.nlargest(5, "Current_Value")[["Ticker", "Current_Value", "Return %"]]
     
     for idx, row in top_holdings.iterrows():
